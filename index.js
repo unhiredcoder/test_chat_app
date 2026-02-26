@@ -3,6 +3,8 @@ import { createServer } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { Server } from 'socket.io';
+const port = process.env.PORT || 3000;
+
 
 const app = express();
 const server = createServer(app);
@@ -20,6 +22,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log('server running at https://test-chat-app-crly.onrender.com:3000');
+server.listen(port, () => {
+  console.log('server running at port ' + port);
 });
